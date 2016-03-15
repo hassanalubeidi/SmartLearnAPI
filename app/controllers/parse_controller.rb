@@ -4,6 +4,8 @@ class ParseController < ApplicationController
 		paper = JSON.parse(paper)
 		testpaper = TestPaper.last
 		paper["mainquestions"].each_with_index do |mainquestion, mainquestion_index|
+			unit_title = mainquestion["objectives"][0][0]["label"]
+			unit = Unit.find_or_create_by(title: unit_title, subject_id: testpaper.subject_id)
 			topic_title = mainquestion["objectives"][0][1]["label"]
 			topic = Topic.find_or_create_by(title: topic_title, unit_id: Unit.last.id)
 			objective_title = mainquestion["objectives"][0][2]["label"]
@@ -20,5 +22,7 @@ class ParseController < ApplicationController
 			testpaper.main_questions << m
 		end
 		testpaper.save
+	end
+	def exampro
 	end
 end

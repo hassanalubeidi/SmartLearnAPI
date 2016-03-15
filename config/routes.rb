@@ -60,11 +60,16 @@ Rails.application.routes.draw do
   jsonapi_resources :units
   jsonapi_resources :topics
   jsonapi_resources :objectives
-  jsonapi_resources :questions
-  jsonapi_resources :main_questions
-  jsonapi_resources :problems
+  
   jsonapi_resources :test_papers
+  jsonapi_resources :main_questions
+  jsonapi_resources :questions
+
   jsonapi_resources :answers
+  jsonapi_resources :problems
+  
+  jsonapi_resources :classrooms
+  jsonapi_resources :users
 
 
 end

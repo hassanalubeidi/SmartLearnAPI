@@ -7,6 +7,9 @@ class Question < ActiveRecord::Base
 	end
 
 	def answer(user)
-		self.answers.where(user: user)
+		self.answers.where(user_id: user.id)
+	end
+	def test_paper
+		self.main_question.test_papers.last
 	end
 end

@@ -1,6 +1,5 @@
 class TopicResource < JSONAPI::Resource
-	attribute :title
-	attribute :progress
+	attributes :title, :progress, :objectives, :unit, :subject
 	has_one :unit
 	has_many :objectives
 
