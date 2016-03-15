@@ -21,8 +21,16 @@ class TestPaper < ActiveRecord::Base
 				end
 			end
 		end
-		return sum_array(full_marks) + sum_array(dropped_marks)
+
+		# Bug: if user gets full marks, it will return testpaper as unfinished
+		if dropped_marks.count != 0 then
+			return sum_array(full_marks) + sum_array(dropped_marks)
+		else
+			return nil
+		end
+		
 	end
+
 
 	def sum_array(array)
 		total = 0
