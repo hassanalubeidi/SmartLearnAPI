@@ -5,7 +5,7 @@ class Objective < ActiveRecord::Base
 
 	validates :title, presence: true
 
-	def progress(user) #usually user = current_user
+	def progress(user)
 		marks = 0
 		total_marks = 0
 		self.main_questions.each do |mq|
@@ -16,7 +16,7 @@ class Objective < ActiveRecord::Base
 				end
 			end
 		end
-		return (marks.to_f / total_marks.to_f) * 100 #might give an error if an objective has no question?
+		return (marks.to_f / total_marks.to_f) * 100
 	end
 
 	private
@@ -24,13 +24,13 @@ class Objective < ActiveRecord::Base
 		a = (Time.now -  question.answer(user).last.created_at).to_i / 86400
 		return half_life(user, question) ** -(a) # exponentail graph
 	end
-	def half_life(user, question) # a much more dynamic half life. NOT FINISHED NEEDS TO GET QUESTION.OBJECTIVES.QUESTIONS.COUNT
+	def half_life(user, question)
 		d = 30
 		x = [].count
 		a = 100 #no of iterations till...
 		b = 10 #.. x10 default
 
-		return half_life_decay(d * (half_life_growth(a,b) ** x))  #very powerful
+		return half_life_decay(d * (half_life_growth(a,b) ** x))
 	end
 	def half_life_decay(steps)
 		return 0.5 ** (-1 / steps.to_f )
