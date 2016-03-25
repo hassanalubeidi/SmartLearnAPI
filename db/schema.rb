@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314195847) do
+ActiveRecord::Schema.define(version: 20160320203624) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "marks"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 20160314195847) do
     t.integer  "subject_id"
     t.string   "year_group"
   end
+
+  create_table "classrooms_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "classroom_id"
+  end
+
+  add_index "classrooms_users", ["classroom_id"], name: "index_classrooms_users_on_classroom_id"
+  add_index "classrooms_users", ["user_id"], name: "index_classrooms_users_on_user_id"
 
   create_table "main_questions", force: :cascade do |t|
     t.datetime "created_at",       null: false

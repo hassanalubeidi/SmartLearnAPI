@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   get '/parse/paper', to: 'parse#paper'
+  get '/classrooms/join/:classroom_id', to: 'classrooms#join'
 
   jsonapi_resources :subjects
   jsonapi_resources :units
