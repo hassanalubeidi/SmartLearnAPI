@@ -23,6 +23,7 @@ gem 'parse_paper', :git => 'https://github.com/hassanalubeidi/ParsePaper.git'
 gem 'pdf-reader'          ##
 gem 'monkeylearn'         ##  Dependencies for parse_paper
 gem 'rest-client'         ## 
+gem 'mysql2'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
