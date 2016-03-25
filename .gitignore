@@ -4,6 +4,11 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+.rspec
+
+# Ignore Gemfile.lock - may comment out to normalise the environment
+Gemfile.lock
+
 # Ignore bundler config.
 /.bundle
 
