@@ -12,7 +12,7 @@ class Problem < ActiveRecord::Base
 		if self.answer == nil then
 			return nil 
 		else
-			return self.answer.question.main_question.test_paper
+			return self.answer.question.main_question.test_papers.first
 		end
 	end
 
