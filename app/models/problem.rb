@@ -23,8 +23,8 @@ class Problem < ActiveRecord::Base
 	end
 
 	def question_objectives(user)
-		unless problem.answer == null then
-			return problem.answer(user).question.main_question.objectives
+		unless self.answer == null then
+			return self.answer(user).question.main_question.objectives
 		end
 	end
 
