@@ -22,6 +22,7 @@ class ParseController < ApplicationController
 			testpaper.main_questions << m
 		end
 		testpaper.save
+		render json: testpaper
 	end
 	def exampro
 	end

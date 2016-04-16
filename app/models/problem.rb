@@ -22,6 +22,12 @@ class Problem < ActiveRecord::Base
 		end
 	end
 
+	def question_objectives(user)
+		unless self.answer == nil then
+			return self.answer(user).question.main_question.objectives
+		end
+	end
+
 	def timeago
 		return time_ago_in_words(self.created_at)
 	end
