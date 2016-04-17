@@ -18,8 +18,8 @@ class Problem < ActiveRecord::Base
 		end
 	end
 
-	def reviwable
-		((Time.now - Problem.first.created_at) / (3600 * 24)).to_i > 1
+	def reviewable
+		((Time.now - self.created_at) / (3600 * 24)).to_i > 1
 	end
 
 	def detail 
