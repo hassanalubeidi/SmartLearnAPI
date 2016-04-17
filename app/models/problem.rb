@@ -19,7 +19,12 @@ class Problem < ActiveRecord::Base
 	end
 
 	def reviewable
-		((Time.now - self.created_at) / (3600 * 24)).to_i > 1
+		if self.reviews.count == 0 then
+			created_at = self.created_at
+		else
+			created_at = self.reviews.last.created_at
+		end
+		((Time.now - created_at) / (3600 * 24)).to_i > 1
 	end
 
 	def detail 
