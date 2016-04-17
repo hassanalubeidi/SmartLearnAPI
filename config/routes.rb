@@ -68,6 +68,7 @@ Rails.application.routes.draw do
 
   jsonapi_resources :answers
   jsonapi_resources :problems
+  jsonapi_resources :reviews
   
   jsonapi_resources :classrooms
   jsonapi_resources :users

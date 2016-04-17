@@ -1,5 +1,5 @@
 class ProblemResource < JSONAPI::Resource
- 	attributes :what_went_wrong, :topic_id, :id, :answer_id, :topic, :answer, :user_id, :timeago, :test_paper, :detail, :objectives
+ 	attributes :what_went_wrong, :topic_id, :id, :answer_id, :topic, :answer, :user_id, :timeago, :test_paper, :detail, :objectives, :reviewable, :reviews
 
  	has_one :topic
 

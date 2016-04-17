@@ -5,6 +5,8 @@ class Problem < ActiveRecord::Base
 	belongs_to :answer
 	belongs_to :user
 
+	has_many :reviews
+
 	validates :what_went_wrong, presence: true
 	validates :topic_id, presence: true
 
@@ -16,9 +18,18 @@ class Problem < ActiveRecord::Base
 		end
 	end
 
+	def reviewable
+		if self.reviews.count == 0 then
+			created_at = self.created_at
+		else
+			created_at = self.reviews.last.created_at
+		end
+		((Time.now - created_at) / (3600 * 24)).to_i > 1
+	end
+
 	def detail 
 		unless self.test_paper == nil then
-			return "#{self.test_paper.title} #{self.answer.question.position} #{self.answer.marks} / #{self.answer.question.out_of}"
+			return "#{self.answer.question.position} #{self.answer.marks} / #{self.answer.question.out_of}"
 		end
 	end
 
