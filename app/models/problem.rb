@@ -21,7 +21,7 @@ class Problem < ActiveRecord::Base
 	def reviewable
 		if self.reviews.count == 0 then
 			created_at = self.created_at
-			time_delay = 1.0
+			time_delay = 0.6
 		else
 			created_at = self.reviews.last.created_at
 			if self.reviews.last.status == "correct"
