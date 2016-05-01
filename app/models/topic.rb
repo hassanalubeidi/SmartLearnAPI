@@ -3,6 +3,7 @@ class Topic < ActiveRecord::Base
 	has_one :subject, :through => :unit
 
 	has_many :objectives
+	has_many :problems
 
 	validates :title, presence: true
 
