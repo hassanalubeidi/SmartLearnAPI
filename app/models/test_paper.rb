@@ -9,6 +9,22 @@ class TestPaper < ActiveRecord::Base
 		return questions
 	end
 
+	def self.report(classroom_ids)
+		users = User.where()
+	end
+
+	def problems #Really messy.
+		problems = []
+		self.questions.each do |question|
+			question.answers.each do |answer|
+				answer.problems.each do |problem|
+					problems.push(problem)
+				end
+			end
+		end
+		return problems
+	end
+
 	def total(user)
 		dropped_marks = []
 		full_marks = []
