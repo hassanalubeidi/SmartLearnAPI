@@ -14,15 +14,17 @@ class TestPaper < ActiveRecord::Base
 	end
 
 	def problems #Really messy.
-		problems = []
+		all_problems = []
 		self.questions.each do |question|
 			question.answers.each do |answer|
 				answer.problems.each do |problem|
-					problems.push(problem)
+					all_problems.push JSONAPI::ResourceSerializer.new(ProblemResource, fields: {title: [:title]}).serialize_to_hash(ProblemResource.new(problem, nil))
 				end
 			end
 		end
-		return problems
+		return all_problems
+
+		
 	end
 
 	def total(user)
