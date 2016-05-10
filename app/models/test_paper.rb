@@ -9,6 +9,24 @@ class TestPaper < ActiveRecord::Base
 		return questions
 	end
 
+	def self.report(classroom_ids)
+		users = User.where()
+	end
+
+	def problems #Really messy.
+		all_problems = []
+		self.questions.each do |question|
+			question.answers.each do |answer|
+				answer.problems.each do |problem|
+					all_problems.push JSONAPI::ResourceSerializer.new(ProblemResource, fields: {title: [:title]}).serialize_to_hash(ProblemResource.new(problem, nil))
+				end
+			end
+		end
+		return all_problems
+
+		
+	end
+
 	def total(user)
 		dropped_marks = []
 		full_marks = []

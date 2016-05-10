@@ -40,9 +40,24 @@ class Problem < ActiveRecord::Base
 		end
 	end
 
+	def position
+		if self.answer then
+			self.answer.question.position
+		end
+	end
+
+	def marks
+		if self.answer then
+			"#{self.answer.marks} / #{self.answer.question.out_of}"
+		end
+	end
 	def question_objectives(user)
 		unless self.answer == nil then
-			return self.answer(user).question.main_question.objectives
+			if self.answer(user).question.main_question.objectives.count > 0 then
+				self.answer(user).question.main_question.objectives
+			else
+				nil
+			end
 		end
 	end
 

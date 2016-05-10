@@ -1,5 +1,5 @@
 class TestPaperResource < JSONAPI::Resource
-  attributes :id, :title, :questions, :subject_id, :total
+  attributes :id, :title, :questions, :subject_id, :total, :problems
   has_many :main_questions
   has_one :subject
 
