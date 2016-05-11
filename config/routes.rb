@@ -57,12 +57,16 @@ Rails.application.routes.draw do
   get '/parse/paper', to: 'parse#paper'
   get '/classrooms/join/:classroom_id', to: 'classrooms#join'
 
+  get '/admin/assign_teacher/:user_id', to: 'admin#assign_teacher'
+  get '/admin/assign_student/:user_id', to: 'admin#assign_student'
+
   jsonapi_resources :subjects
   jsonapi_resources :units
   jsonapi_resources :topics
   jsonapi_resources :objectives
   
   jsonapi_resources :test_papers
+  jsonapi_resources :test_paper_details
   jsonapi_resources :main_questions
   jsonapi_resources :questions
 
@@ -72,6 +76,4 @@ Rails.application.routes.draw do
   
   jsonapi_resources :classrooms
   jsonapi_resources :users
-
-
 end
