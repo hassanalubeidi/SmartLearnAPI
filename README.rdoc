@@ -1,28 +1,13 @@
-== README
+# smart-learn-io
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Back end of SmartLearn web application
 
-Things you may want to cover:
+## Build & development
 
-* Ruby version
+Run `bundle` in the terminal
 
-* System dependencies
+Migrate the database by running `rake db:migrate` in the terminal
 
-* Configuration
+Use the rails console to create subjects by running `rails c` in the terminal
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Run  `rails s` in the terminal
